@@ -2,7 +2,6 @@
 
 <img src="https://img.shields.io/badge/Flask-v2.2.3-blue?logo=flask&logoColor=white"> <img src="https://img.shields.io/badge/Python-v3.11.3-blue?logo=python&logoColor=white"> <img src="https://img.shields.io/github/commit-activity/m/Taaaa-yuki/Lyrics_API?logo=github"> <img src="https://img.shields.io/github/repo-size/Taaaa-yuki/Lyrics_API?logo=github">
 
-
 This is a Flask-based API for scraping lyrics from websites.
 
 ## Installation
