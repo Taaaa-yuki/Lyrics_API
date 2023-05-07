@@ -29,7 +29,7 @@ pip install -r requirements.txt
 1. Set the FLASK_APP environment variable:
 
 ```bash
-export FLASK_APP=src/app.py  
+export FLASK_APP=src/app.py
 ```
 
 2. Start the server:
