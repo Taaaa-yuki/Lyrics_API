@@ -38,7 +38,7 @@ export FLASK_APP=src/app.py
 flask run
 ```
 
-3. Get the URL of a song on uta-net.com and assign it to url:
+3. Get the URL of a song on [uta-net.com](https://www.uta-net.com) and assign it to url:
 
 ```url
 url=https://www.uta-net.com/song/335761/
