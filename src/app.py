@@ -1,37 +1,21 @@
-import traceback
 import os
-from flask import Flask, jsonify, request
-import requests
-from scrape import scrape
+from flask import Flask
+from routes import scrape_route, catch_all
 
 app = Flask(__name__)
 
-@app.route('/scrape', methods=['POST'])
-def scrape_route():
-    url = request.form.get('url')
-    if not url:
-        return jsonify({'error': 'Missing url parameter.'}), 400
-
-    try:
-        result = scrape(url)
-        return jsonify(result)
-
-    except requests.exceptions.RequestException as e:
-        traceback.print_exc()
-        return jsonify({'error': str(e)}), 500
-
-    except ValueError as e:
-        traceback.print_exc()
-        return jsonify({'error': str(e)}), 500
-
-
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    return jsonify({'message': 'Welcome to the lyrics API.'})
+app.register_blueprint(scrape_route)
+app.register_blueprint(catch_all)
 
 
 if __name__ == '__main__':
-    # ポート指定
-    port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True, port=port)
+    def get_port():
+        # 環境変数からポート番号を取得する関数
+        return int(os.environ.get('PORT', 5000))
+
+    def start_app():
+        # アプリを起動する関数
+        port = get_port()
+        app.run(debug=True, port=port)
+
+    start_app()
