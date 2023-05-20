@@ -1,4 +1,5 @@
 import traceback
+import os
 from flask import Flask, jsonify, request
 import requests
 from scrape import scrape
@@ -31,4 +32,6 @@ def catch_all(path):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # ポート指定
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, port=port)
